@@ -88,7 +88,7 @@ function playNextSong() {
             },
             {
                 "title": "Instagram",
-                "link": "https://instagram.com/kyy.zx",
+                "link": "https://instagram.com/kzy.zx",
                 "icon": "fab fa-instagram"
             },
             {
@@ -124,7 +124,7 @@ buttonsData.buttons.forEach(button => {
 
 // Event listener untuk tombol Follow
 document.getElementById('followButton').addEventListener('click', function() {
-    window.open('https://github.com/IkyySC', '_blank');
+    window.open('https://github.com/ShiinjiZX', '_blank');
 });
 
 // Event listener untuk tombol Message
@@ -144,94 +144,79 @@ document.getElementById('thanksButton').addEventListener('click', function() {
     }
 });
 
-function updateDateTime() {
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('date').textContent = now.toLocaleDateString('id-ID', options);
+document.addEventListener("DOMContentLoaded", async function () {
+    const visitorCounter = document.getElementById("visitor-counter");
+    const dateElement = document.getElementById("date");
+    const timeElement = document.getElementById("time");
+    const ipElement = document.getElementById("ip");
 
-    const timeWIB = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta' });
-    const timeWITA = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar' });
-    const timeWIT = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jayapura' });
-    document.getElementById('time').innerHTML = `WIB: ${timeWIB}<br>WITA: ${timeWITA}<br>WIT: ${timeWIT}`;
-}
-
-function getIPAddress() {
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('ip').textContent = `IP Address: ${data.ip}`;
-        })
-        .catch(error => {
-            console.error('Error fetching IP address:', error);
-            document.getElementById('ip').textContent = 'IP Address: Tidak dapat mengambil IP address';
-        });
-}
-
-function updateVisitors() {
-    let visitors = localStorage.getItem('visitors');
-    if (visitors) {
-        visitors = parseInt(visitors) + 1;
-    } else {
-        visitors = 1;
+    if (!visitorCounter || !dateElement || !timeElement || !ipElement) {
+        console.error("Satu atau lebih elemen tidak ditemukan!");
+        return;
     }
-    localStorage.setItem('visitors', visitors);
-    document.getElementById('visitors').textContent = `Visitors: ${visitors}`;
-}
 
-updateDateTime();
-setInterval(updateDateTime, 1000);
-getIPAddress();
-updateVisitors(); // Panggil fungsi updateVisitors saat halaman dimuat
+    // Update Date and Time
+    function updateDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        dateElement.textContent = now.toLocaleDateString('id-ID', options);
 
-function createSnow() {
-    const snow = document.createElement('div');
-    snow.classList.add('snow');
-    snow.style.left = Math.random() * 100 + '%';
-    snow.style.animationDuration = Math.random() * 3 + 2 + 's';
-    document.getElementById('weatherEffects').appendChild(snow);
-    setTimeout(() => snow.remove(), 5000);
-}
-
-function createRain() {
-    const rain = document.createElement('div');
-    rain.classList.add('rain');
-    rain.style.left = Math.random() * 100 + '%';
-    rain.style.animationDuration = Math.random() * 1 + 0.5 + 's';
-    document.getElementById('weatherEffects').appendChild(rain);
-    setTimeout(() => rain.remove(), 1000);
-}
-
-function createLightning() {
-    const lightning = document.createElement('div');
-    lightning.classList.add('lightning');
-    document.getElementById('weatherEffects').appendChild(lightning);
-    setTimeout(() => lightning.style.opacity = 1, 100);
-    setTimeout(() => lightning.style.opacity = 0, 200);
-    setTimeout(() => lightning.remove(), 300);
-}
-
-function changeWeather() {
-    const weatherEffects = document.getElementById('weatherEffects');
-    weatherEffects.innerHTML = ''; // Bersihkan efek cuaca sebelumnya
-
-    const weatherType = Math.floor(Math.random() * 3); // 0: salju, 1: hujan, 2: petir
-
-    switch (weatherType) {
-        case 0:
-            for (let i = 0; i < 50; i++) {
-                createSnow();
-            }
-            break;
-        case 1:
-            for (let i = 0; i < 100; i++) {
-                createRain();
-            }
-            break;
-        case 2:
-            createLightning();
-            break;
+        const timeWIB = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta' });
+        const timeWITA = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar' });
+        const timeWIT = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jayapura' });
+        timeElement.innerHTML = `WIB: ${timeWIB}<br>WITA: ${timeWITA}<br>WIT: ${timeWIT}`;
     }
-}
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
 
-setInterval(changeWeather, 6000); // Ganti cuaca setiap 2 menit (120000 ms)
-changeWeather(); // Panggil fungsi changeWeather saat halaman dimuat
+    // Visitor Counter & IP Fetch
+    let storedIPs = JSON.parse(localStorage.getItem("visitorIPs")) || [];
+
+    try {
+        const response = await fetch("https://api64.ipify.org?format=json", { cache: "no-store" });
+        if (!response.ok) throw new Error("Gagal mengambil IP");
+        
+        const data = await response.json();
+        const userIP = data.ip;
+        ipElement.textContent = `Your IP: ${userIP}`;
+
+        if (!storedIPs.includes(userIP)) {
+            storedIPs.push(userIP);
+            localStorage.setItem("visitorIPs", JSON.stringify(storedIPs));
+        }
+
+        visitorCounter.textContent = `Visitors: ${storedIPs.length}`;
+    } catch (error) {
+        console.error("Error fetching IP address:", error);
+        visitorCounter.textContent = "Visitors: Unable to fetch data";
+        ipElement.textContent = "IP: Error fetching data";
+    }
+});
+
+
+// Hapus semua efek cuaca kecuali salju
+// Pastikan salju turun selama 3 detik dan muncul setiap 7 detik
+document.addEventListener("DOMContentLoaded", function () {
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snow");
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.animationDuration = "3s";
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 3000); // Hapus setelah 3 detik
+    }
+
+    function startSnowfall() {
+        createSnowflake();
+        let snowfallInterval = setInterval(createSnowflake, 200);
+
+        setTimeout(() => {
+            clearInterval(snowfallInterval);
+        }, 3000); // Hentikan efek setelah 3 detik
+    }
+
+    setInterval(startSnowfall, 7000); // Jalankan setiap 7 detik
+});

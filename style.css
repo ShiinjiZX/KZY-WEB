@@ -6,10 +6,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    background-image: url('https://files.catbox.moe/wt3z7l.jpg'); /* Ganti URL_GAMBAR_ANIME_KAMU dengan URL gambar anime yang kamu temukan */
+    background-image: url('https://files.catbox.moe/wt3z7l.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Agar gambar latar belakang tetap di tempat saat halaman di-scroll */
+    background-attachment: fixed;
 }
 
 .profile-container {
@@ -214,58 +214,24 @@ footer {
     color: black;
 }
 
-.weather-effects {
+.snow {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Agar efek tidak mengganggu interaksi dengan elemen lain */
-    z-index: 9999; /* Pastikan efek berada di atas elemen lain */
-}
-
-.snow {
-    position: absolute;
-    width: 15px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
     background-color: white;
     border-radius: 50%;
-    animation: snowfall 5s linear infinite;
-}
-
-.rain {
-    position: absolute;
-    width: 3px;
-    height: 10px;
-    background-color: lightblue;
-    animation: rainfall 1s linear infinite;
-}
-
-.lightning {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    transition: opacity 0.1s ease;
+    opacity: 0.8;
+    animation: snowfall 3s linear;
 }
 
 @keyframes snowfall {
     0% {
         transform: translateY(-10px);
+        opacity: 1;
     }
     100% {
         transform: translateY(100vh);
-    }
-}
-
-@keyframes rainfall {
-    0% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(100vh);
+        opacity: 0;
     }
 }
