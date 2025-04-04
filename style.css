@@ -1,0 +1,237 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('https://files.catbox.moe/wt3z7l.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.profile-container {
+    width: none;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid transparent; /* Ubah border menjadi transparan */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-container:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-color: #eee;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.profile-image:hover {
+    transform: scale(1.1); /* Efek hover memperbesar gambar */
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-location {
+    margin-top: 10px; /* Tambahkan margin agar tidak terlalu dekat dengan tombol */
+    color: #ffff;
+    text-align: center; /* Pastikan teks tetap di tengah */
+}
+
+.follow-btn, .message-btn {
+    padding: 8px 16px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px; /* Lebar tombol disesuaikan agar sama */
+
+}
+
+.follow-btn i, .message-btn i {
+    margin-right: 5px; /* Tambahkan jarak antara ikon dan teks */
+}
+
+.follow-btn {
+    background-color: red; /* Warna merah untuk tombol Follow */
+    color: white;
+}
+
+.follow-btn:hover {
+    background-color: darkred; /* Warna merah yang lebih gelap saat hover */
+}
+
+.message-btn {
+    background-color: lightgray; /* Warna abu-abu untuk tombol Message */
+    color: black;
+}
+
+.message-btn:hover {
+    background-color: gray; /* Warna abu-abu yang lebih gelap saat hover */
+}
+
+.verified-badge {
+    color: #1da1f2;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn, .follow-btn, .message-btn, .show-links-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+}
+
+.btn:hover, .follow-btn:hover, .message-btn:hover, .show-links-btn:hover {
+    transform: translateY(-3px); /* Efek sedikit naik saat hover */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Tambahkan shadow saat hover */
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Efek hover sedikit naik */
+}
+
+.profile-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    color: #777;
+}
+
+.show-links-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.show-links-btn:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+.verified-badge {
+    color: #1da1f2;
+    margin-left: 5px;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    width: 100%;
+}
+#buttons-container {
+    display: none;
+}
+
+.thanks-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.thanks-btn:hover {
+    background-color: #0056b3;
+}
+
+.thanks-border {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: white;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 15px;
+    display: none; /* Sembunyikan border secara default */
+    text-align: left;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: none;
+    font-weight: bold;
+}
+
+.top-left, .top-center, .top-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-left div, .top-center div, .top-right div {
+    margin: 5px;
+}
+
+#date, #time {
+    color: black;
+}
+
+.snow {
+    position: fixed;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: snowfall 3s linear;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
