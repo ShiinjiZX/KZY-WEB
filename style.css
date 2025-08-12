@@ -17,19 +17,18 @@ main {
     flex: 1;
 }
 
-/* Profil */
+/* Profile container memanjang */
 .profile-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
-    padding-bottom: 60px; /* tambah ruang bawah */
-    min-height: 450px; /* memanjang ke bawah */
+    padding-bottom: 60px;
+    min-height: 450px;
     text-align: center;
     border-radius: 12px;
     border: 2px solid transparent;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
     font-size: 1.1rem;
-    background-color: rgba(255,255,255,0.1); /* opsional: transparan halus */
 }
 
 .profile-container:hover {
@@ -37,81 +36,48 @@ main {
     border-color: #eee;
 }
 
-.profile-header {
-    margin-bottom: 20px;
-}
-
+/* Profile image lebih besar */
 .profile-image {
-    width: 180px; /* sebelumnya 150px */
+    width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
-
 .profile-image:hover {
     transform: scale(1.1);
 }
 
+/* Tombol */
 .profile-actions {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-
-.profile-location {
-    margin-top: 10px;
-    color: #fff;
-}
-
-/* Tombol */
 .follow-btn, .message-btn {
     padding: 8px 16px;
     margin: 0 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     width: 120px;
 }
+.follow-btn { background-color: red; color: white; }
+.follow-btn:hover { background-color: darkred; }
+.message-btn { background-color: lightgray; color: black; }
+.message-btn:hover { background-color: gray; }
 
-.follow-btn i, .message-btn i {
-    margin-right: 5px;
-}
-
-.follow-btn {
-    background-color: red;
-    color: white;
-}
-.follow-btn:hover {
-    background-color: darkred;
-}
-
-.message-btn {
-    background-color: lightgray;
-    color: black;
-}
-.message-btn:hover {
-    background-color: gray;
-}
-
-/* Tombol Link Sosial */
+/* Sosial Media */
 .buttons-grid {
-    display: grid;
+    display: none; /* Awal tersembunyi */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin-bottom: 20px;
 }
-.btn i {
-    margin-right: 8px;
-}
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
+.btn i { margin-right: 8px; }
 
+/* Tombol show link */
 .show-links-btn {
     background-color: #28a745;
     color: white;
@@ -124,28 +90,26 @@ main {
     background-color: #218838;
 }
 
-/* Footer selalu di bawah */
+/* Footer */
 footer {
     text-align: center;
     color: #777;
     background-color: #f8f9fa;
     padding: 10px 0;
     border-top: 1px solid #eee;
-    margin-top: auto; /* dorong footer ke bawah tanpa fixed */
+    margin-top: auto;
 }
 
-/* Top Bar */
+/* Top bar */
 .top-bar {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     font-weight: bold;
 }
-#date, #time {
-    color: black;
-}
+#date, #time { color: black; }
 
-/* Thanks Button */
+/* Tombol love */
 .thanks-btn {
     position: fixed;
     bottom: 20px;
@@ -156,14 +120,11 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 9999; /* pastikan di depan semua */
+    z-index: 9999;
 }
+.thanks-btn:hover { background-color: #0056b3; }
 
-.thanks-btn:hover {
-    background-color: #0056b3;
-}
-
+/* Panel thanks */
 .thanks-border {
     position: fixed;
     bottom: 80px;
@@ -174,10 +135,10 @@ footer {
     padding: 15px;
     display: none;
     text-align: left;
-    z-index: 9999; /* di depan semua */
+    z-index: 9999;
 }
 
-/* Efek Salju */
+/* Efek salju */
 .snow {
     position: fixed;
     top: 0;

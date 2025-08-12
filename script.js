@@ -1,55 +1,9 @@
-// =======================
-// Musik Random + Tombol
-// =======================
 const musicUrls = [
     "https://files.catbox.moe/x7up1q.mp3",
     "https://files.catbox.moe/3epgg3.mp3",
     "https://files.catbox.moe/2yot99.mp3",
     "https://files.catbox.moe/cof5zw.mp3",
-    "https://files.catbox.moe/ezmyeb.mp3",
-    "https://files.catbox.moe/yzujwh.mp3",
-    "https://files.catbox.moe/huf63r.mp3",
-    "https://files.catbox.moe/ezmyeb.mp3",
-    "https://files.catbox.moe/7v9s5p.mp3",
-    "https://files.catbox.moe/2ipgt5.mp3",
-    "https://files.catbox.moe/nlhsyh.mp3",
-    "https://files.catbox.moe/t8ejtv.mp3",
-    "https://files.catbox.moe/hymhg0.mp3",
-    "https://files.catbox.moe/5awonj.mp3",
-    "https://files.catbox.moe/l5xx59.mp3",
-    "https://files.catbox.moe/sc8kj2.mp3",
-    "https://files.catbox.moe/k2wfge.mp3",
-    "https://files.catbox.moe/k2wfge.mp3",
-    "https://files.catbox.moe/c83a4n.mp3",
-    "https://files.catbox.moe/5ld1ay.mp3",
-    "https://files.catbox.moe/ak3v20.mp3",
-    "https://files.catbox.moe/qfqi6w.mp3",
-    "https://files.catbox.moe/yfz9dp.mp3",
-    "https://files.catbox.moe/ntk7bh.mp3",
-    "https://files.catbox.moe/mahenr.mp3",
-    "https://files.catbox.moe/clfuv9.m4a",
-    "https://files.catbox.moe/pnfk40.mp3",
-    "https://files.catbox.moe/ak3v20.mp3",
-    "https://files.catbox.moe/ch6zby.mp3",
-    "https://files.catbox.moe/hrc4m0.mp3",
-    "https://files.catbox.moe/1uctuc.mp3",
-    "https://files.catbox.moe/887m1y.mp3",
-    "https://files.catbox.moe/vyq73h.mp3",
-    "https://files.catbox.moe/5ld1ay.mp3",
-    "https://files.catbox.moe/7kvvip.mp3",
-    "https://files.catbox.moe/7swaxp.mp3",
-    "https://files.catbox.moe/tq1vwg.mp3",
-    "https://files.catbox.moe/bbx2l2.mp3",
-    "https://files.catbox.moe/3n3aun.mp3",
-    "https://files.catbox.moe/hs82nh.mp3",
-    "https://files.catbox.moe/odstvz.mp3",
-    "https://files.catbox.moe/gdtzrr.mp3",
-    "https://files.catbox.moe/dfkmse.mp3",
-    "https://files.catbox.moe/lrmym6.mp3",
-    "https://files.catbox.moe/sy6z90.mp3",
-    "https://files.catbox.moe/50pc6b.mp3",
-    "https://files.catbox.moe/msp5u8.mp3",
-    "https://files.catbox.moe/x7up1q.mp3"
+    "https://files.catbox.moe/ezmyeb.mp3"
 ];
 
 let audio;
@@ -57,15 +11,11 @@ let audio;
 function playAudio() {
     if (!audio) {
         audio = document.getElementById('linkmp3');
-        if (!audio) {
-            console.error("Elemen audio tidak ditemukan!");
-            return;
-        }
+        if (!audio) return console.error("Elemen audio tidak ditemukan!");
         audio.addEventListener('ended', playNextSong);
     }
     playNextSong();
 
-    // Tampilkan tombol media sosial saat klik
     const buttonsData = [
         { title: "WhatsApp Bot", link: "https://wa.me/6281221380234", icon: "fab fa-whatsapp" },
         { title: "Youtube", link: "https://youtube.com/@IkyyTzy_", icon: "fab fa-youtube" },
@@ -107,12 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Date & time
     const dateElement = document.getElementById("date");
     const timeElement = document.getElementById("time");
-
     function updateDateTime() {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         dateElement.textContent = now.toLocaleDateString('id-ID', options);
-
         const timeWIB = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta' });
         const timeWITA = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar' });
         const timeWIT = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jayapura' });
