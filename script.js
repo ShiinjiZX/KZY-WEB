@@ -64,7 +64,24 @@ function playAudio() {
         audio.addEventListener('ended', playNextSong);
     }
     playNextSong();
-    document.getElementById('buttons-container').style.display = 'block';
+
+    // Tampilkan tombol media sosial saat klik
+    const buttonsData = [
+        { title: "WhatsApp Bot", link: "https://wa.me/6281221380234", icon: "fab fa-whatsapp" },
+        { title: "Youtube", link: "https://youtube.com/@IkyyTzy_", icon: "fab fa-youtube" },
+        { title: "Instagram", link: "https://instagram.com/kzy.zx", icon: "fab fa-instagram" },
+        { title: "Tiktok", link: "https://tiktok.com/@kyybtz", icon: "fab fa-tiktok" },
+        { title: "X", link: "https://x.com/ShiinKZY", icon: "fab fa-twitter" }
+    ];
+
+    const buttonsContainer = document.getElementById('buttons-container');
+    buttonsContainer.innerHTML = buttonsData.map(btn =>
+        `<a href="${btn.link}" class="btn" target="_blank">
+            <i class="${btn.icon}"></i><span>${btn.title}</span>
+        </a>`
+    ).join('');
+
+    buttonsContainer.style.display = 'grid';
     document.getElementById('playButton').style.display = 'none';
 }
 
@@ -74,24 +91,7 @@ function playNextSong() {
     audio.play();
 }
 
-const buttonsData = [
-    { title: "WhatsApp Bot", link: "https://wa.me/6281221380234", icon: "fab fa-whatsapp" },
-    { title: "Youtube", link: "https://youtube.com/@IkyyTzy_", icon: "fab fa-youtube" },
-    { title: "Instagram", link: "https://instagram.com/kzy.zx", icon: "fab fa-instagram" },
-    { title: "Tiktok", link: "https://tiktok.com/@kyybtz", icon: "fab fa-tiktok" },
-    { title: "X", link: "https://x.com/ShiinKZY", icon: "fab fa-twitter" }
-];
-
 document.addEventListener("DOMContentLoaded", () => {
-    // Generate tombol sosial media
-    const buttonsContainer = document.getElementById('buttons-container');
-    buttonsContainer.innerHTML = buttonsData.map(btn =>
-        `<a href="${btn.link}" class="btn" target="_blank">
-            <i class="${btn.icon}"></i><span>${btn.title}</span>
-        </a>`
-    ).join('');
-
-    // Event tombol
     document.getElementById('followButton').addEventListener('click', () => {
         window.open('https://github.com/ShiinjiZX', '_blank');
     });
@@ -104,9 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         thanksBorder.style.display = (thanksBorder.style.display === 'block') ? 'none' : 'block';
     });
 
-    // =======================
-    // Date & Time
-    // =======================
+    // Date & time
     const dateElement = document.getElementById("date");
     const timeElement = document.getElementById("time");
 
@@ -123,9 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    // =======================
-    // Efek Salju
-    // =======================
+    // Efek salju
     function createSnowflake() {
         const snowflake = document.createElement("div");
         snowflake.classList.add("snow");
@@ -134,12 +130,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(snowflake);
         setTimeout(() => snowflake.remove(), 3000);
     }
-
     function startSnowfall() {
         createSnowflake();
         let snowfallInterval = setInterval(createSnowflake, 200);
         setTimeout(() => clearInterval(snowfallInterval), 3000);
     }
-
     setInterval(startSnowfall, 7000);
 });
