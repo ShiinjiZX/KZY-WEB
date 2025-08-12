@@ -60,107 +60,48 @@ function playAudio() {
         }
         audio.addEventListener('ended', playNextSong);
     }
-
     playNextSong();
-
-    // Tampilkan tombol dan link
-    const buttonsContainer = document.getElementById('buttons-container');
-    buttonsContainer.style.display = 'block';
-
-function playNextSong() {
-    const randomIndex = Math.floor(Math.random() * musicUrls.length);
-    const randomMusicUrl = musicUrls[randomIndex];
-    audio.src = randomMusicUrl;
-    audio.play();
-}
-
-   const buttonsData = {
-        "buttons": [
-            {
-                "title": "WhatsApp Bot",
-                "link": "https://wa.me/6281221380234",
-                "icon": "fab fa-whatsapp"
-            },
-            {
-                "title": "Youtube",
-                "link": "https://youtube.com/@IkyyTzy_",
-                "icon": "fab fa-youtube"
-            },
-            {
-                "title": "Instagram",
-                "link": "https://instagram.com/kzy.zx",
-                "icon": "fab fa-instagram"
-            },
-            {
-                "title": "Tiktok",
-                "link": "https://tiktok.com/@kyybtz",
-                "icon": "fab fa-tiktok"
-            },
-            {
-                "title": "X",
-                "link": "https://x.com/ShiinKZY",
-                "icon": "fab fa-twitter"
-            }
-        ]
-    };
-
-    buttonsContainer.innerHTML = ''; // Clear previous buttons
-
-buttonsData.buttons.forEach(button => {
-    var btn = document.createElement('a');
-    btn.setAttribute('href', button.link);
-    btn.setAttribute('class', 'btn');
-    btn.setAttribute('target', '_blank');
-
-    var icon = document.createElement('i');
-    icon.setAttribute('class', button.icon);
-    btn.appendChild(icon);
-
-    var textSpan = document.createElement('span');
-    textSpan.textContent = button.title;
-    btn.appendChild(textSpan);
-
-    buttonsContainer.appendChild(btn);
-});
-
-    // Sembunyikan tombol "Lihat Link"
+    document.getElementById('buttons-container').style.display = 'block';
     document.getElementById('playButton').style.display = 'none';
 }
 
-// Event listener untuk tombol Follow
-document.getElementById('followButton').addEventListener('click', function() {
+function playNextSong() {
+    const randomIndex = Math.floor(Math.random() * musicUrls.length);
+    audio.src = musicUrls[randomIndex];
+    audio.play();
+}
+
+const buttonsData = [
+    { title: "WhatsApp Bot", link: "https://wa.me/6281221380234", icon: "fab fa-whatsapp" },
+    { title: "Youtube", link: "https://youtube.com/@IkyyTzy_", icon: "fab fa-youtube" },
+    { title: "Instagram", link: "https://instagram.com/kzy.zx", icon: "fab fa-instagram" },
+    { title: "Tiktok", link: "https://tiktok.com/@kyybtz", icon: "fab fa-tiktok" },
+    { title: "X", link: "https://x.com/ShiinKZY", icon: "fab fa-twitter" }
+];
+
+document.getElementById('buttons-container').innerHTML = buttonsData.map(btn =>
+    `<a href="${btn.link}" class="btn" target="_blank">
+        <i class="${btn.icon}"></i><span>${btn.title}</span>
+    </a>`
+).join('');
+
+document.getElementById('followButton').addEventListener('click', () => {
     window.open('https://github.com/ShiinjiZX', '_blank');
 });
-
-// Event listener untuk tombol Message
-document.getElementById('messageButton').addEventListener('click', function() {
+document.getElementById('messageButton').addEventListener('click', () => {
     window.open('https://wa.me/6281248845231', '_blank');
 });
-
-// Event listener untuk tombol Lihat Link
 document.getElementById('playButton').addEventListener('click', playAudio);
-
-document.getElementById('thanksButton').addEventListener('click', function() {
-    var thanksBorder = document.getElementById('thanksBorder');
-    if (thanksBorder.style.display === 'none' || thanksBorder.style.display === '') {
-        thanksBorder.style.display = 'block';
-    } else {
-        thanksBorder.style.display = 'none';
-    }
+document.getElementById('thanksButton').addEventListener('click', () => {
+    const thanksBorder = document.getElementById('thanksBorder');
+    thanksBorder.style.display = (thanksBorder.style.display === 'block') ? 'none' : 'block';
 });
 
-document.addEventListener("DOMContentLoaded", async function () {
-    const visitorCounter = document.getElementById("visitor-counter");
+// Update tanggal & jam
+document.addEventListener("DOMContentLoaded", function () {
     const dateElement = document.getElementById("date");
     const timeElement = document.getElementById("time");
-    const ipElement = document.getElementById("ip");
 
-    if (!visitorCounter || !dateElement || !timeElement || !ipElement) {
-        console.error("Satu atau lebih elemen tidak ditemukan!");
-        return;
-    }
-
-    // Update Date and Time
     function updateDateTime() {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -173,34 +114,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
-
-    // Visitor Counter & IP Fetch
-    let storedIPs = JSON.parse(localStorage.getItem("visitorIPs")) || [];
-
-    try {
-        const response = await fetch("https://api64.ipify.org?format=json", { cache: "no-store" });
-        if (!response.ok) throw new Error("Gagal mengambil IP");
-        
-        const data = await response.json();
-        const userIP = data.ip;
-        ipElement.textContent = `Your IP: ${userIP}`;
-
-        if (!storedIPs.includes(userIP)) {
-            storedIPs.push(userIP);
-            localStorage.setItem("visitorIPs", JSON.stringify(storedIPs));
-        }
-
-        visitorCounter.textContent = `Visitors: ${storedIPs.length}`;
-    } catch (error) {
-        console.error("Error fetching IP address:", error);
-        visitorCounter.textContent = "Visitors: Unable to fetch data";
-        ipElement.textContent = "IP: Error fetching data";
-    }
 });
 
-
-// Hapus semua efek cuaca kecuali salju
-// Pastikan salju turun selama 3 detik dan muncul setiap 7 detik
+// Efek salju
 document.addEventListener("DOMContentLoaded", function () {
     function createSnowflake() {
         const snowflake = document.createElement("div");
@@ -208,20 +124,12 @@ document.addEventListener("DOMContentLoaded", function () {
         snowflake.style.left = Math.random() * 100 + "vw";
         snowflake.style.animationDuration = "3s";
         document.body.appendChild(snowflake);
-
-        setTimeout(() => {
-            snowflake.remove();
-        }, 3000); // Hapus setelah 3 detik
+        setTimeout(() => snowflake.remove(), 3000);
     }
-
     function startSnowfall() {
         createSnowflake();
         let snowfallInterval = setInterval(createSnowflake, 200);
-
-        setTimeout(() => {
-            clearInterval(snowfallInterval);
-        }, 3000); // Hentikan efek setelah 3 detik
+        setTimeout(() => clearInterval(snowfallInterval), 3000);
     }
-
-    setInterval(startSnowfall, 7000); // Jalankan setiap 7 detik
+    setInterval(startSnowfall, 7000);
 });

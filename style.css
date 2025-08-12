@@ -142,24 +142,23 @@ body {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
-    margin-top: auto;
-    padding: 20px 0;
+    color: #777;
     background-color: #f8f9fa;
+    padding: 10px 0;
     border-top: 1px solid #eee;
+    z-index: 999;
 }
+
 .verified-badge {
     color: #1da1f2;
     margin-left: 5px;
 }
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #777;
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    width: 100%;
-}
+
 #buttons-container {
     display: none;
 }
