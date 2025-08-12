@@ -3,7 +3,50 @@ const musicUrls = [
     "https://files.catbox.moe/3epgg3.mp3",
     "https://files.catbox.moe/2yot99.mp3",
     "https://files.catbox.moe/cof5zw.mp3",
-    "https://files.catbox.moe/ezmyeb.mp3"
+    "https://files.catbox.moe/ezmyeb.mp3",
+    "https://files.catbox.moe/yzujwh.mp3",
+    "https://files.catbox.moe/huf63r.mp3",
+    "https://files.catbox.moe/ezmyeb.mp3",
+    "https://files.catbox.moe/7v9s5p.mp3",
+    "https://files.catbox.moe/2ipgt5.mp3",
+    "https://files.catbox.moe/nlhsyh.mp3",
+    "https://files.catbox.moe/t8ejtv.mp3",
+    "https://files.catbox.moe/hymhg0.mp3",
+    "https://files.catbox.moe/5awonj.mp3",
+    "https://files.catbox.moe/l5xx59.mp3",
+    "https://files.catbox.moe/sc8kj2.mp3",
+    "https://files.catbox.moe/k2wfge.mp3",
+    "https://files.catbox.moe/k2wfge.mp3",
+    "https://files.catbox.moe/c83a4n.mp3",
+    "https://files.catbox.moe/5ld1ay.mp3",
+    "https://files.catbox.moe/ak3v20.mp3",
+    "https://files.catbox.moe/qfqi6w.mp3",
+    "https://files.catbox.moe/yfz9dp.mp3",
+    "https://files.catbox.moe/ntk7bh.mp3",
+    "https://files.catbox.moe/mahenr.mp3",
+    "https://files.catbox.moe/clfuv9.m4a",
+    "https://files.catbox.moe/pnfk40.mp3",
+    "https://files.catbox.moe/ak3v20.mp3",
+    "https://files.catbox.moe/ch6zby.mp3",
+    "https://files.catbox.moe/hrc4m0.mp3",
+    "https://files.catbox.moe/1uctuc.mp3",
+    "https://files.catbox.moe/887m1y.mp3",
+    "https://files.catbox.moe/vyq73h.mp3",
+    "https://files.catbox.moe/5ld1ay.mp3",
+    "https://files.catbox.moe/7kvvip.mp3",
+    "https://files.catbox.moe/7swaxp.mp3",
+    "https://files.catbox.moe/tq1vwg.mp3",
+    "https://files.catbox.moe/bbx2l2.mp3",
+    "https://files.catbox.moe/3n3aun.mp3",
+    "https://files.catbox.moe/hs82nh.mp3",
+    "https://files.catbox.moe/odstvz.mp3",
+    "https://files.catbox.moe/gdtzrr.mp3",
+    "https://files.catbox.moe/dfkmse.mp3",
+    "https://files.catbox.moe/lrmym6.mp3",
+    "https://files.catbox.moe/sy6z90.mp3",
+    "https://files.catbox.moe/50pc6b.mp3",
+    "https://files.catbox.moe/msp5u8.mp3",
+    "https://files.catbox.moe/x7up1q.mp3"
 ];
 
 let audio;
@@ -17,11 +60,12 @@ function playAudio() {
     playNextSong();
 
     const buttonsData = [
-        { title: "WhatsApp Bot", link: "https://wa.me/6281221380234", icon: "fab fa-whatsapp" },
-        { title: "Youtube", link: "https://youtube.com/@IkyyTzy_", icon: "fab fa-youtube" },
+        { title: "WhatsApp 2", link: "https://wa.me/6281248845231", icon: "fab fa-whatsapp" },
+        { title: "Youtube", link: "https://youtube.com/@Ktz-KyyTzy", icon: "fab fa-youtube" },
         { title: "Instagram", link: "https://instagram.com/kzy.zx", icon: "fab fa-instagram" },
-        { title: "Tiktok", link: "https://tiktok.com/@kyybtz", icon: "fab fa-tiktok" },
-        { title: "X", link: "https://x.com/ShiinKZY", icon: "fab fa-twitter" }
+        { title: "Tiktok", link: "https://tiktok.com/@ikyykzy", icon: "fab fa-tiktok" },
+        { title: "X", link: "https://x.com/ShiinKZY", icon: "fab fa-twitter" }, 
+        { title: "Github", link: "https://github.com/ShiinjiZX", icon: "fab fa-github" }
     ];
 
     const buttonsContainer = document.getElementById('buttons-container');
@@ -43,7 +87,7 @@ function playNextSong() {
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('followButton').addEventListener('click', () => {
-        window.open('https://github.com/ShiinjiZX', '_blank');
+        window.open('https://whatsapp.com/channel/0029Vb6ZLKPFy72HsLBqZi1x', '_blank');
     });
     document.getElementById('messageButton').addEventListener('click', () => {
         window.open('https://wa.me/6281248845231', '_blank');
