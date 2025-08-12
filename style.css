@@ -14,17 +14,19 @@ html, body {
 }
 
 main {
-    flex: 1; /* Dorong footer ke bawah */
+    flex: 1;
 }
 
 /* Profil */
 .profile-container {
-    max-width: 500px;
+    max-width: 600px; /* sebelumnya 500px */
     margin: 50px auto;
+    padding: 30px; /* tambah padding */
     text-align: center;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 2px solid transparent;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    font-size: 1.1rem; /* sedikit lebih besar */
 }
 
 .profile-container:hover {
@@ -37,11 +39,11 @@ main {
 }
 
 .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 180px; /* sebelumnya 150px */
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -126,7 +128,7 @@ footer {
     background-color: #f8f9fa;
     padding: 10px 0;
     border-top: 1px solid #eee;
-    margin-top: auto;
+    margin-top: auto; /* dorong footer ke bawah tanpa fixed */
 }
 
 /* Top Bar */
