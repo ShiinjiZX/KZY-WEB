@@ -71,9 +71,29 @@ main {
 /* Sosial Media */
 .buttons-grid {
     display: none; /* Awal tersembunyi */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: column; /* Susun vertikal */
     gap: 10px;
     margin-bottom: 20px;
+    align-items: center; /* Tengah */
+}
+
+.buttons-grid .btn {
+    width: 80%; /* Tombol lebar */
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    color: #333;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.buttons-grid .btn:hover {
+    background-color: #f0f0f0;
 }
 .btn i { margin-right: 8px; }
 
