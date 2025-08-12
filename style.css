@@ -19,14 +19,17 @@ main {
 
 /* Profil */
 .profile-container {
-    max-width: 600px; /* sebelumnya 500px */
+    max-width: 600px;
     margin: 50px auto;
-    padding: 30px; /* tambah padding */
+    padding: 30px;
+    padding-bottom: 60px; /* tambah ruang bawah */
+    min-height: 450px; /* memanjang ke bawah */
     text-align: center;
     border-radius: 12px;
     border: 2px solid transparent;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    font-size: 1.1rem; /* sedikit lebih besar */
+    font-size: 1.1rem;
+    background-color: rgba(255,255,255,0.1); /* opsional: transparan halus */
 }
 
 .profile-container:hover {
@@ -153,7 +156,10 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 9999; /* pastikan di depan semua */
 }
+
 .thanks-btn:hover {
     background-color: #0056b3;
 }
@@ -168,6 +174,7 @@ footer {
     padding: 15px;
     display: none;
     text-align: left;
+    z-index: 9999; /* di depan semua */
 }
 
 /* Efek Salju */
