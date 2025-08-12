@@ -31,7 +31,7 @@ function playAudio() {
         </a>`
     ).join('');
 
-    buttonsContainer.style.display = 'grid';
+    buttonsContainer.style.display = 'flex';
     document.getElementById('playButton').style.display = 'none';
 }
 

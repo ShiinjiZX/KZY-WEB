@@ -68,18 +68,16 @@ main {
 .message-btn { background-color: lightgray; color: black; }
 .message-btn:hover { background-color: gray; }
 
-/* Sosial Media */
+/* Sosial Media Vertikal */
 .buttons-grid {
     display: none; /* Awal tersembunyi */
-    display: flex;
-    flex-direction: column; /* Susun vertikal */
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
-    align-items: center; /* Tengah */
+    align-items: center;
 }
-
 .buttons-grid .btn {
-    width: 80%; /* Tombol lebar */
+    width: 80%;
     text-align: left;
     padding: 10px;
     border: 1px solid #ccc;
@@ -95,7 +93,9 @@ main {
 .buttons-grid .btn:hover {
     background-color: #f0f0f0;
 }
-.btn i { margin-right: 8px; }
+.buttons-grid .btn i {
+    margin-right: 8px;
+}
 
 /* Tombol show link */
 .show-links-btn {
