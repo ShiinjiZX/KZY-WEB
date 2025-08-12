@@ -1,3 +1,6 @@
+// =======================
+// Musik Random + Tombol
+// =======================
 const musicUrls = [
     "https://files.catbox.moe/x7up1q.mp3",
     "https://files.catbox.moe/3epgg3.mp3",
@@ -79,26 +82,31 @@ const buttonsData = [
     { title: "X", link: "https://x.com/ShiinKZY", icon: "fab fa-twitter" }
 ];
 
-document.getElementById('buttons-container').innerHTML = buttonsData.map(btn =>
-    `<a href="${btn.link}" class="btn" target="_blank">
-        <i class="${btn.icon}"></i><span>${btn.title}</span>
-    </a>`
-).join('');
+document.addEventListener("DOMContentLoaded", () => {
+    // Generate tombol sosial media
+    const buttonsContainer = document.getElementById('buttons-container');
+    buttonsContainer.innerHTML = buttonsData.map(btn =>
+        `<a href="${btn.link}" class="btn" target="_blank">
+            <i class="${btn.icon}"></i><span>${btn.title}</span>
+        </a>`
+    ).join('');
 
-document.getElementById('followButton').addEventListener('click', () => {
-    window.open('https://github.com/ShiinjiZX', '_blank');
-});
-document.getElementById('messageButton').addEventListener('click', () => {
-    window.open('https://wa.me/6281248845231', '_blank');
-});
-document.getElementById('playButton').addEventListener('click', playAudio);
-document.getElementById('thanksButton').addEventListener('click', () => {
-    const thanksBorder = document.getElementById('thanksBorder');
-    thanksBorder.style.display = (thanksBorder.style.display === 'block') ? 'none' : 'block';
-});
+    // Event tombol
+    document.getElementById('followButton').addEventListener('click', () => {
+        window.open('https://github.com/ShiinjiZX', '_blank');
+    });
+    document.getElementById('messageButton').addEventListener('click', () => {
+        window.open('https://wa.me/6281248845231', '_blank');
+    });
+    document.getElementById('playButton').addEventListener('click', playAudio);
+    document.getElementById('thanksButton').addEventListener('click', () => {
+        const thanksBorder = document.getElementById('thanksBorder');
+        thanksBorder.style.display = (thanksBorder.style.display === 'block') ? 'none' : 'block';
+    });
 
-// Update tanggal & jam
-document.addEventListener("DOMContentLoaded", function () {
+    // =======================
+    // Date & Time
+    // =======================
     const dateElement = document.getElementById("date");
     const timeElement = document.getElementById("time");
 
@@ -112,12 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const timeWIT = now.toLocaleTimeString('id-ID', { timeZone: 'Asia/Jayapura' });
         timeElement.innerHTML = `WIB: ${timeWIB}<br>WITA: ${timeWITA}<br>WIT: ${timeWIT}`;
     }
-    setInterval(updateDateTime, 1000);
     updateDateTime();
-});
+    setInterval(updateDateTime, 1000);
 
-// Efek salju
-document.addEventListener("DOMContentLoaded", function () {
+    // =======================
+    // Efek Salju
+    // =======================
     function createSnowflake() {
         const snowflake = document.createElement("div");
         snowflake.classList.add("snow");
@@ -126,10 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(snowflake);
         setTimeout(() => snowflake.remove(), 3000);
     }
+
     function startSnowfall() {
         createSnowflake();
         let snowfallInterval = setInterval(createSnowflake, 200);
         setTimeout(() => clearInterval(snowfallInterval), 3000);
     }
+
     setInterval(startSnowfall, 7000);
 });

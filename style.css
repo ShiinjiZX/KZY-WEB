@@ -1,27 +1,29 @@
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
     background-image: url('https://files.catbox.moe/wt3z7l.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+main {
+    flex: 1; /* Dorong footer ke bawah */
+}
+
+/* Profil */
 .profile-container {
-    width: none;
     max-width: 500px;
     margin: 50px auto;
-    background-color: none;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
     text-align: center;
-    border: 2px solid transparent; /* Ubah border menjadi transparan */
+    border-radius: 10px;
+    border: 2px solid transparent;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -40,11 +42,11 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    transition: transform 0.3s ease; /* Transisi untuk efek hover */
+    transition: transform 0.3s ease;
 }
 
 .profile-image:hover {
-    transform: scale(1.1); /* Efek hover memperbesar gambar */
+    transform: scale(1.1);
 }
 
 .profile-actions {
@@ -54,11 +56,11 @@ body {
 }
 
 .profile-location {
-    margin-top: 10px; /* Tambahkan margin agar tidak terlalu dekat dengan tombol */
-    color: #ffff;
-    text-align: center; /* Pastikan teks tetap di tengah */
+    margin-top: 10px;
+    color: #fff;
 }
 
+/* Tombol */
 .follow-btn, .message-btn {
     padding: 8px 16px;
     margin: 0 10px;
@@ -66,65 +68,43 @@ body {
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 120px; /* Lebar tombol disesuaikan agar sama */
-
+    width: 120px;
 }
 
 .follow-btn i, .message-btn i {
-    margin-right: 5px; /* Tambahkan jarak antara ikon dan teks */
+    margin-right: 5px;
 }
 
 .follow-btn {
-    background-color: red; /* Warna merah untuk tombol Follow */
+    background-color: red;
     color: white;
 }
-
 .follow-btn:hover {
-    background-color: darkred; /* Warna merah yang lebih gelap saat hover */
+    background-color: darkred;
 }
 
 .message-btn {
-    background-color: lightgray; /* Warna abu-abu untuk tombol Message */
+    background-color: lightgray;
     color: black;
 }
-
 .message-btn:hover {
-    background-color: gray; /* Warna abu-abu yang lebih gelap saat hover */
+    background-color: gray;
 }
 
-.verified-badge {
-    color: #1da1f2;
-}
-
+/* Tombol Link Sosial */
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin-bottom: 20px;
 }
-
-.btn, .follow-btn, .message-btn, .show-links-btn {
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
-}
-
-.btn:hover, .follow-btn:hover, .message-btn:hover, .show-links-btn:hover {
-    transform: translateY(-3px); /* Efek sedikit naik saat hover */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Tambahkan shadow saat hover */
-}
-
 .btn i {
     margin-right: 8px;
 }
-
 .btn:hover {
     background-color: #0056b3;
-    transform: translateY(-3px); /* Efek hover sedikit naik */
-}
-
-.profile-footer {
-    border-top: 1px solid #eee;
-    padding-top: 15px;
-    color: #777;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .show-links-btn {
@@ -134,35 +114,33 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Transisi untuk efek hover */
 }
-
 .show-links-btn:hover {
     background-color: #218838;
 }
 
+/* Footer selalu di bawah */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     text-align: center;
     color: #777;
     background-color: #f8f9fa;
     padding: 10px 0;
     border-top: 1px solid #eee;
-    z-index: 999;
+    margin-top: auto;
 }
 
-.verified-badge {
-    color: #1da1f2;
-    margin-left: 5px;
+/* Top Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: bold;
+}
+#date, #time {
+    color: black;
 }
 
-#buttons-container {
-    display: none;
-}
-
+/* Thanks Button */
 .thanks-btn {
     position: fixed;
     bottom: 20px;
@@ -173,9 +151,7 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
-
 .thanks-btn:hover {
     background-color: #0056b3;
 }
@@ -188,31 +164,11 @@ footer {
     border: 2px solid #007bff;
     border-radius: 5px;
     padding: 15px;
-    display: none; /* Sembunyikan border secara default */
+    display: none;
     text-align: left;
 }
 
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: none;
-    font-weight: bold;
-}
-
-.top-left, .top-center, .top-right {
-    display: flex;
-    flex-direction: column;
-}
-
-.top-left div, .top-center div, .top-right div {
-    margin: 5px;
-}
-
-#date, #time {
-    color: black;
-}
-
+/* Efek Salju */
 .snow {
     position: fixed;
     top: 0;
@@ -223,14 +179,7 @@ footer {
     opacity: 0.8;
     animation: snowfall 3s linear;
 }
-
 @keyframes snowfall {
-    0% {
-        transform: translateY(-10px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
+    0% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
 }
